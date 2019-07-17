@@ -18,7 +18,8 @@ import (
 func main() {
 	i := 1
 	j := 1.0
-	k := C.CString("c")
+//	k := C.CString("c")
+	k := byte(99)
 
 	fmt.Printf("%c : %T \n", k,k)
 
