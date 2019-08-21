@@ -8,10 +8,13 @@ small library I wrote to implement a generic set in C.
 The aim of this was to test out calling C functions from GO
 via functions exposed in a header file.
 
-
-## to get the relevant set-c source files in the local directory:
+### A Simple Makefile is provided to build the binary
+To build:
 ```
-git clone https://github.com/holmanbph/set-c
+make
+```
 
-cp set-c/set.* set-c/util.* .
+To clean:
+```
+make clean
 ```
