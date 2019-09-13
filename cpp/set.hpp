@@ -16,15 +16,15 @@ class Set {
 
 
 	// create and destroy values in set
-	int set_add(void *d, DATA_TYPE t);
-	int set_delete(void * d, DATA_TYPE t);
+	int add(void *d, DATA_TYPE t);
+	int del(void * d, DATA_TYPE t);
 
 
 	// get length of set
-	unsigned int set_length(); 
+	unsigned int length(); 
 
 	// check if value is in set already
-	int set_member(void *d, DATA_TYPE t);
+	int member(void *d, DATA_TYPE t);
 
 	/*
 	// returns a set that is the union of the two arguments
@@ -55,7 +55,7 @@ class Set {
 
 	*/
 	// prints value of items in the set
-	void set_print(struct set *s);
+	void print();
 
 	unsigned int set_num_adts(struct set *s);
 

@@ -16,7 +16,10 @@ Set::~Set(){
 //	// add user defined data types via this function
 //	int  set_add_adt(struct set *, struct adt_funcs *, DATA_TYPE dt);  
 //
-//
+int Set::add(void *d, DATA_TYPE t){
+	return set_add(this->s,  d,  t);
+}
+
 //	// create and destroy values in set
 //	int set_add(struct set *s, void *d, DATA_TYPE t);
 //	int set_delete(struct set * s, void * d, DATA_TYPE t);
@@ -53,6 +56,9 @@ Set::~Set(){
 //	void * node_get_data(struct node *n);
 //	DATA_TYPE node_get_type(struct node *n);
 //
+void Set::print(){
+	set_print(this->s);
+}
 //	// prints value of items in the set
 //	void set_print(struct set *s);
 //
