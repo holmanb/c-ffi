@@ -1,4 +1,12 @@
+# This is very much a quick and dirty script
+# lots of flags used to warn of issues
+# this file is not for reusability or cleanliness
+# this literally just makes it easy to build and test the
+# code
+#
+# nothing more, nothing less
 SUBDIR=set-c
+OUT=cpp
 
 CPPFLAGS = -g -O -Wall -pedantic  \
 	   -pedantic-errors -Wextra -Waggregate-return -Wcast-align \
@@ -22,14 +30,12 @@ CPPFLAGS = -g -O -Wall -pedantic  \
 	   -Wvariadic-macros \
 	   -Wwrite-strings
 
+.PHONY: all clean
 all:
 	rm -rf $(SUBDIR)
 	git clone https://github.com/holmanbph/set-c
 	
 	make -C $(SUBDIR)
-	g++ c.cpp set.cpp $(SUBDIR)/set.o $(SUBDIR)/util.o -o cpp.out $(CPPFLAGS)
-	rm -rf set.c set.h util.*
+	g++ c.cpp set.cpp $(SUBDIR)/set.o $(SUBDIR)/util.o -o $(OUT) $(CPPFLAGS)
 clean:
-	rm -rf set-c set.c set.h util.* 
-	rm -rf set-c
-	rm cpp.out
+	rm -rf $(SUBDIR) $(OUT)
