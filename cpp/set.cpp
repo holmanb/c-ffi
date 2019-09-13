@@ -13,24 +13,26 @@ Set::~Set(){
 	set_free(this->s);
 }
 
-//	// add user defined data types via this function
-//	int  set_add_adt(struct set *, struct adt_funcs *, DATA_TYPE dt);  
-//
+// add user defined data types via this function
 int Set::add(void *d, DATA_TYPE t){
 	return set_add(this->s,  d,  t);
 }
 
-//	// create and destroy values in set
-//	int set_add(struct set *s, void *d, DATA_TYPE t);
-//	int set_delete(struct set * s, void * d, DATA_TYPE t);
-//
-//
-//	// get length of set
-//	unsigned int set_length(struct set * s); 
-//	// check if value is in set already
-//	int set_member(struct set *s, void *d, DATA_TYPE t);
-//
-//	// returns a set that is the union of the two arguments
+int Set::del(void *d, DATA_TYPE t){
+	return set_delete(this->s,  d,  t);
+}
+
+// get length of set
+unsigned int Set::length(){
+	return set_length(this->s); 
+}
+
+// check if value is in set already
+int Set::member(void *d, DATA_TYPE t){
+	return set_member(this->s, d, t);
+}
+
+// returns a set that is the union of the two arguments
 //	struct set * set_union(struct set *s1, struct set *s2);
 //
 //	// returns a set that is the intersection of the two arguments
@@ -56,13 +58,17 @@ int Set::add(void *d, DATA_TYPE t){
 //	void * node_get_data(struct node *n);
 //	DATA_TYPE node_get_type(struct node *n);
 //
+
+//	// prints value of items in the set
 void Set::print(){
 	set_print(this->s);
 }
-//	// prints value of items in the set
-//	void set_print(struct set *s);
-//
-//	unsigned int set_num_adts(struct set *s);
-//
-//};
 
+unsigned int Set::num_adts(){
+	return set_num_adts(this->s);
+}
+
+int Set::add_adt(struct adt_funcs *f, DATA_TYPE dt){
+	return set_add_adt(this->s,f,dt);
+}
+//int  set_add_adt(struct set *, struct adt_funcs *, DATA_TYPE dt);  // note: this may change to support more than just an equality function

@@ -11,10 +11,6 @@ class Set {
 	Set();
 	~Set();
 
-	// add user defined data types via this function
-	int set_add_adt(struct adt_funcs *, DATA_TYPE dt);  
-
-
 	// create and destroy values in set
 	int add(void *d, DATA_TYPE t);
 	int del(void * d, DATA_TYPE t);
@@ -57,7 +53,8 @@ class Set {
 	// prints value of items in the set
 	void print();
 
-	unsigned int set_num_adts(struct set *s);
+	unsigned int num_adts();
+	int add_adt(struct adt_funcs *f, DATA_TYPE dt);
 
 };
 
