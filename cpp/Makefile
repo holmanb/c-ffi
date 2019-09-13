@@ -6,7 +6,7 @@
 #
 # nothing more, nothing less
 SUBDIR=set-c
-OUT=cpp
+OUT=main
 
 CPPFLAGS = -g -O -Wall -pedantic  \
 	   -pedantic-errors -Wextra -Waggregate-return -Wcast-align \
@@ -36,6 +36,6 @@ all:
 	git clone https://github.com/holmanbph/set-c
 	
 	make -C $(SUBDIR)
-	g++ c.cpp set.cpp $(SUBDIR)/set.o $(SUBDIR)/util.o -o $(OUT) $(CPPFLAGS)
+	g++ main.cpp set.cpp $(SUBDIR)/set.o $(SUBDIR)/util.o -o $(OUT) $(CPPFLAGS)
 clean:
 	rm -rf $(SUBDIR) $(OUT)

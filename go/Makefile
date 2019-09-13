@@ -5,4 +5,4 @@ all:
 	go build 
 	rm -rf set.* util.*
 clean:
-	rm -rf set-c set.* util.* cgo
+	rm -rf set-c set.* util.* go
