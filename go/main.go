@@ -1,8 +1,8 @@
 package main
 
 /*
-#cgo CFLAGS: -I .
-#cgo LDFLAGS: -L .
+#cgo CFLAGS: -I ./set-c
+#cgo LDFLAGS: -L ./set-c
 
 #include "stdlib.h"
 #include "set.h"

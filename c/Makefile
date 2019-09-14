@@ -11,9 +11,9 @@ OBJECTS = $(SOURCES:.c=.o)
 all:
 	rm -rf $(SUBDIR)
 	git clone https://github.com/holmanbph/set-c
-	make -C $(SUBDIR)
+	make lib -C $(SUBDIR)
 
-	$(CC) $(EXEC).c $(SUBDIR)/set.o $(SUBDIR)/util.o -o $(EXEC)
+	$(CC) $(EXEC).c -Lset-c -lset -o $(EXEC)
 #g++ main.cpp set.cpp $(SUBDIR)/set.o $(SUBDIR)/util.o -o $(OUT) $(CPPFLAGS)
 clean:
 	rm -rf $(SUBDIR) $(EXEC)

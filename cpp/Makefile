@@ -35,7 +35,7 @@ all:
 	rm -rf $(SUBDIR)
 	git clone https://github.com/holmanbph/set-c
 	
-	make -C $(SUBDIR)
-	g++ main.cpp set.cpp $(SUBDIR)/set.o $(SUBDIR)/util.o -o $(OUT) $(CPPFLAGS)
+	make lib -C $(SUBDIR)
+	g++ main.cpp set.cpp -Lset-c -lset -o $(OUT) $(CPPFLAGS)
 clean:
 	rm -rf $(SUBDIR) $(OUT)
