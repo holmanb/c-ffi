@@ -5,11 +5,9 @@
 
 
 Set::Set():s(0){
-	std::cout<<"creating set\n";	
 	this->s = set_init();
 }
 Set::~Set(){
-	std::cout<<"deleting set\n";	
 	set_free(this->s);
 }
 
