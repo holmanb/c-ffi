@@ -1,8 +1,13 @@
+SUBDIR=set-c
+OUT=main
+
 all:
-	rm -rf set-c
+	rm -rf $(SUBDIR)
 	git clone https://github.com/holmanbph/set-c
-	make lib -C set-c
-	go build 
+	make lib -C $(SUBDIR)
+
+	export CGO_LDFLAGS="-Wl,-rpath,./set-c"
+	go build -o $(OUT)
 	rm -rf set.* util.*
 clean:
-	rm -rf set-c set.* util.* go
+	rm -rf set-c $(OUT)

@@ -5,10 +5,13 @@
 # code
 #
 # nothing more, nothing less
+CC = g++
 SUBDIR=set-c
 OUT=main
+SOURCES = $(wildcard *.cpp)
 
-CPPFLAGS = -g -O -Wall -pedantic  \
+
+CPP_FLAGS = -g -O -Wall -pedantic  \
 	   -pedantic-errors -Wextra -Waggregate-return -Wcast-align \
 	   -Wcast-qual -Wconversion \
 	   -Wdisabled-optimization \
@@ -30,12 +33,16 @@ CPPFLAGS = -g -O -Wall -pedantic  \
 	   -Wvariadic-macros \
 	   -Wwrite-strings
 
+LD_FLAGS = "-Wl,-rpath,./$(SUBDIR)" -Lset-c -lset
+
+
 .PHONY: all clean
 all:
+	# Get and build a fresh copy of the library
 	rm -rf $(SUBDIR)
 	git clone https://github.com/holmanbph/set-c
-	
 	make lib -C $(SUBDIR)
-	g++ main.cpp set.cpp -Lset-c -lset -o $(OUT) $(CPPFLAGS)
+
+	$(CC) $(SOURCES) $(LD_FLAGS) -o $(OUT) $(CPP_FLAGS)
 clean:
 	rm -rf $(SUBDIR) $(OUT)
