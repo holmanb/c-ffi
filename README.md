@@ -26,4 +26,4 @@ the FFI in each language.
 
 ## Organization
 There is a directory for each language. For ease of building the code, a makefile is provided in each one.
-Run `make` in the directory to build the bindary.
+Run `make` in the directory to build the binary.
